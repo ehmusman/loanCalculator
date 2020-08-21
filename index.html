@@ -59,7 +59,7 @@
     }
     #result span.input-group-addon {
       margin-bottom: 20px;
-      backgroun d-color: rgba(0, 0, 0, .2);
+      background-color: rgba(0, 0, 0, .2);
       margin-right: 0px;
       padding: 5px;
     }
@@ -76,6 +76,33 @@
       width: 100%;
       background-color: rgba(255, 0, 0, 0.2);
       color: rgba(255, 0, 0, 1);
+    }
+    div.reset {
+      width: 100%;
+      padding: 5px;
+    }
+    div.reset span{
+      width: 60%;
+      padding: 5px;
+      background-color: rgba(0, 0, 0, .2);
+    }
+    div.reset input{
+      width: 40%;
+      padding: 5px;
+      color: white;
+      font-size: 15px;
+      background-color: rgba(0, 0, 0, .8);
+
+    }
+    div.reset {
+      display: none;
+    }
+    div.reset input:hover{
+      background-color: rgba(0, 0, 0, .75);
+    }
+    div.reset input:active{
+      height: 35px;
+      background-color: rgba(0, 0, 0, .95);
     }
   </style>
 </head>
@@ -104,8 +131,17 @@
             <input type="number" class="form-control" id="years" placeholder="Years To Repay">
           </div>
         </div>
+        <div>
+          <div id="reset-value">
+            <input type="reset" id="reset" value="Reset Values">
+          </div>
+        </div>
         <div class="form-group">
           <input type="submit" class="button" id="button" value="Calculate">
+        </div>
+        <div class="reset">
+          <span >double click here to reset all</span>
+          <input type="button" value="Reset All" id="resetAll">
         </div>
       </form>
     </div>

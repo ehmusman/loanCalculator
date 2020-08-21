@@ -6,6 +6,9 @@ document.getElementById('loan-form').addEventListener('submit', function(e){
   // show loading image for one second
 document.getElementById('loading').style.display = 'inline'
 
+// hide the reset all buttons
+ document.querySelector('div.reset').style.display = 'none'  
+  // hide the reset all button
   setTimeout(calculateResults,1000)
 
 
@@ -38,22 +41,40 @@ const calculatedPayments = parseFloat(years.value)*12;
 const x = Math.pow(1 + calculatedInterest , calculatedPayments);
 const monthly = (principal*x*calculatedInterest)/(x-1);
 
-// show results
-document.getElementById('result').style.display = 'block';
-
 
 // hide the loading image
 document.getElementById('loading').style.display = 'none'
 
+
 if (isFinite(monthly)){
+
+// show results
+document.getElementById('result').style.display = 'block';
+
+// show the reset all button
+document.querySelector('div.reset').style.display = 'block'
+
+document.querySelector('div.reset input#resetAll').addEventListener('dblclick', resetAll);
+
   monthlyPayment.value = monthly.toFixed(2);
   totalPayment.value = (monthly*calculatedPayments).toFixed(2);
   totalInterest.value = ((monthly*calculatedPayments)-principal).toFixed(2);
 }else {
 showError('please check your numbers')
 }
-// remove entered values afer some time
+
 }
+// // Reset All 
+
+function resetAll (){
+  document.getElementById('amount').value = '';
+  document.getElementById('interest').value = '';
+  document.getElementById('years').value = '';
+  document.getElementById('result').style.display = 'none';
+  document.querySelector('div.reset').style.display = 'none';
+  document.getElementById('loading').style.display = 'none';
+}
+
 function showError(error){
   // hide results
   document.getElementById('result').style.display = 'none';
