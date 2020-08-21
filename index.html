@@ -1,11 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loan Calculator</title>
+  <style>
+    body {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .container {
+      max-width: 400px;
+      border: 1px solid #000;
+      margin: 20px auto;
+      height: auto;
+      background-color: #fff;
+      padding: 20px;
+      line-height: 2.5em;
+      text-align: center;
+
+    }
+    h1 {
+      background-color: rgba(0, 0, 0, 0.43);
+    }
+    #card-body .form-control {
+      margin-bottom: 20px;
+      width: 80%;
+      padding: 5px;
+    }
+    #card-body .form-group #years {
+      width: 85%;
+    }
+    #card-body span.input-group-addon {
+      margin-bottom: 10px;
+      background-color: rgba(0, 0, 0, .2);
+      padding: 6px;
+    }
+    .form-group #button{
+      width: 90%;
+      height: 30px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, .75);
+    }
+    .form-group #button:hover{
+      background-color: rgba(0, 0, 0, .95);
+    }
+    .form-group #button:active{
+      height: 35px;
+      background-color: rgba(0, 0, 0, .95);
+    }
+    #result .form-control {
+      margin-bottom: 10px;
+      width: 50%;
+      padding: 5px;
+    }
+    #result span.input-group-addon {
+      margin-bottom: 20px;
+      backgroun d-color: rgba(0, 0, 0, .2);
+      margin-right: 0px;
+      padding: 5px;
+    }
+    #loading {
+      height: 150px;
+      width: 150px;
+      display: none;
+    }
+    #result{
+      display: none;
+    }
+    #alert {
+      text-align: center;
+      width: 100%;
+      background-color: rgba(255, 0, 0, 0.1);
+      color: rgba(255, 0, 0, 1);
+    }
+  </style>
 </head>
+
 <body>
-  
+  <div class="container">
+    <div id="heading">
+      <h1>Loan Calculator</h1>
+    </div>
+    <div id="card-body">
+      <form id="loan-form" >
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"> $ </span>
+            <input type="number" class="form-control" id="amount" placeholder="Loan Amount">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"> % </span>
+            <input type="number" class="form-control" id="interest" placeholder="Interest Rate">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <input type="number" class="form-control" id="years" placeholder="Years To Repay">
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="button" id="button" value="Calculate">
+        </div>
+      </form>
+    </div>
+    <div class="loading">
+      <img id="loading" src="img/loading.gif" alt="loading">
+    </div>
+    <div id="result">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">Monthly Payment</span>
+          <input type="number" class="form-control" id="monthly-payment" disabled>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">Total Payment</span>
+          <input type="number" class="form-control" id="total-payment" disabled>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">Total Interest</span>
+          <input type="number" class="form-control" id="total-interest" disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
 </body>
+
 </html>
