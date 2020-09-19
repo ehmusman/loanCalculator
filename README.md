@@ -1,3 +1,3 @@
 visit this link to see the product
 
-loanCalculator-ehmusman.surge.sh
+http://loanCalculator-ehmusman.surge.sh
